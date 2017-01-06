@@ -40,8 +40,11 @@ describe('sorting function', function () {
 	it('should return an array', function () {
 		expect(sortImports(samples.sampleText1)).to.be.an.Array;
 	});
-	
-	//придумать 3 строки, отсортировать в голове
-	//потом отсортировать твоей функцией
-	//из головы должно равняться тому что получилось
+	it('should sort as expected', function () {
+		const testLines = `const squirrel = require('belka');\n/*eslint is a great tool:0*/\n'use strict';`;
+		const expected = `/*eslint is a great tool:0*/\n'use strict';\nconst squirrel = require('belka');`;
+		var tokens = sortImports(testLines);
+		expect(tokensToString(tokens)).to.be.eql(expected);
+	});
+
 });
