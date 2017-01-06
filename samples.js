@@ -17,5 +17,6 @@ const baseUrl = config.APP.TEST.BASE_URL;
 const request = require('co-request');
 const mock = require('../../mocks.js');
 
-const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
+const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`,
+	emptyStringSample: ''
 };
