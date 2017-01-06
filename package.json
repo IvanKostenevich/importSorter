@@ -2,11 +2,12 @@
   "name": "ivan",
   "version": "1.0.0",
   "description": "",
-  "main": "alg.js",
+  "main": "sort-imports.js",
   "dependencies": {
     "eslint": "^3.12.2"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.12.2",
     "eslint-plugin-react": "^6.8.0",
     "mocha": "^3.2.0"

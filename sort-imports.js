@@ -2,26 +2,6 @@
 
 /*global _:true*/
 
-var defaultText = `/*eslint require-yield:0*/
-'use strict';
-const config = require('../../config.js');
-// eslint-disable-next-line no-unused-vars
-const coMocha = require('co-mocha');
-// eslint-disable-next-line no-unused-vars
-const should = require('chai').should();
-// eslint-disable-next-line no-unused-vars
-const _ = require('lodash');
-const EventLogger = require('@alphaflow/sc-eventstore/lib/event-logger.js');
-const constants = require('@alphaflow/sc-common').constants;
-const HTTPStatus = require('http-status');
-const baseUrl = config.AsdsdasdPP.TEST.BASE_URL;
-const token = require('./../util/jwt-token.js').get(['earning:post']);
-const baseUrl = config.APP.TEST.BASE_URL;
-const request = require('co-request');
-const mock = require('../../mocks.js');
-
-const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`;
-
 var splitIntoLines = function (text) {
 	if (!_.isString(text)) {
 		throw new Error('Invalid argument');
@@ -78,12 +58,18 @@ var sortImports = function (text) {
 	return _.sortBy(tokens, 'weight');
 };
 
-var tokensToString = function (tokens) {
-	//validation
-	//convert to string
-	
-	throw new Error('Not implemented');
+// var tokensToString = function (tokens) {
+// 	//validation
+// 	//convert to string
+//
+// 	throw new Error('Not implemented');
+// };
+
+var tokensToString = function (array) {
+	let sortedLines = _.map(array, 'line');
+	return _.join(sortedLines, '\n');
 };
 
 
-sortImports(defaultText);
+var tokens = sortImports(samples.sampleText1);
+tokensToString(tokens);
