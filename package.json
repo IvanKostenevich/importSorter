@@ -5,7 +5,8 @@
   "main": "sort-imports.js",
   "dependencies": {
     "eslint": "^3.12.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "sort-imports": "latest"
   },
   "devDependencies": {
     "chai": "^3.5.0",
