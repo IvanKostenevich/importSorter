@@ -1,3 +1,2 @@
-node_modules
-chai.js
+node_modules/
 karma.config.js

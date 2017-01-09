@@ -10,8 +10,8 @@ module.exports = function (config) {
             './node_modules/lodash/lodash.min.js',
             './node_modules/chai/chai.js',
             'https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js',
-            'sort-imports.js',
-            'test.js'
+            'js/sort-imports.js',
+            'js/test.js'
         ],
         singleRun: true
     });
