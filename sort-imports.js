@@ -58,12 +58,6 @@ var sortImports = function (text) {
 	return _.sortBy(tokens, 'weight');
 };
 
-// var tokensToString = function (tokens) {
-// 	//validation
-// 	//convert to string
-//
-// 	throw new Error('Not implemented');
-// };
 
 var tokensToString = function (array) {
 	let sortedLines = _.map(array, 'line');

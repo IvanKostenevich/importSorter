@@ -1,5 +1,6 @@
 'use strict';
 
+
 describe('splitting into lines function', function () {
 	it('should be a function', function () {
 		expect(splitIntoLines).to.be.a.Function;
@@ -9,16 +10,23 @@ describe('splitting into lines function', function () {
 		expect(splitIntoLines(samples.sampleText1)).to.be.an.Array;
 	});
 	it('check if string is not empty', function () {
-		var splittedLines = splitIntoLines(samples.emptyStringSample);
+		var splittedLines = splitIntoLines(samples.sampleText1);
 		if (splittedLines === null || splittedLines.length === 0  ){
 			throw new Error ('String should not be empty!');
 		}
 	});
-	
-	//it should return an array with n items if n-line stirng passed
-	// n = random()
-	// st = string containing n lines
-	// array = split(st) should have length n
+	it('should check if function is splitting on right number of lines', function () {
+		var generateRandomText = function (linesNumber) {
+			var randomString = Math.random().toString(36) + '\n';
+
+			return randomString.repeat(linesNumber);
+		};
+
+		var expectedLinesNumber = _.random(1, 9);
+		var randomText = generateRandomText(expectedLinesNumber);
+		var arrayOfLines = splitIntoLines(randomText);
+		chai.assert.equal(arrayOfLines.length, expectedLinesNumber, 'numbers are equal');
+	});
 });
 
 describe('calculating line weight function', function () {
