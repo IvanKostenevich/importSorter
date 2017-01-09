@@ -1,7 +1,5 @@
 'use strict';
 
-import importSorterModule from 'sort-imports';
-
 describe('splitting into lines function', function () {
 	it('should be a function', function () {
 		expect(importSorterModule.splitIntoLines).to.be.a.Function;

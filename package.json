@@ -1,12 +1,11 @@
 {
   "name": "ivan",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "",
   "main": "sort-imports.js",
   "dependencies": {
     "eslint": "^3.12.2",
-    "lodash": "^4.17.4",
-    "sort-imports": "latest"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",

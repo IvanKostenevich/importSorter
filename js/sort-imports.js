@@ -1,6 +1,6 @@
 'use strict';
 
-export default(function importSorterModule () {
+var importSorterModule = (function () {
 // eslint-disable-next-line no-unused-vars
 	var samples = {
 		sampleText1: `/*eslint require-yield:0*/
@@ -51,6 +51,8 @@ const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
 		}
 	};
 	return {
+		samples: samples,
+		patterns: patterns,
 		splitIntoLines: function (text) {
 			if (!_.isString(text)) {
 				throw new Error('Invalid argument');

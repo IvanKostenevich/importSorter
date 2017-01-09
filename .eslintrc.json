@@ -2,7 +2,14 @@
   "env": {
     "browser": true,
     "commonjs": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
+  },
+  "globals": {
+    "importSorterModule": true,
+    "_":true,
+    "chai":true,
+    "expect":true
   },
   "extends": "eslint:recommended",
   "installedESLint": true,
