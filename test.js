@@ -16,7 +16,7 @@ describe('splitting into lines function', function () {
 			throw new Error ('String should not be empty!');
 		}
 	});
-	it('should check if function is splitting on right number of lines', function () {
+	/*it('should check if function is splitting on right number of lines', function () {
 		var generateRandomText = function (linesNumber) {
 			var randomString = Math.random().toString(36) + '\n';
 
@@ -27,7 +27,7 @@ describe('splitting into lines function', function () {
 		var randomText = generateRandomText(expectedLinesNumber);
 		var arrayOfLines = splitIntoLines(randomText);
 		chai.assert.equal(arrayOfLines.length, expectedLinesNumber, 'numbers are equal');
-	});
+	});*/
 });
 
 describe('calculating line weight function', function () {
