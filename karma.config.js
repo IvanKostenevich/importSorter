@@ -8,6 +8,7 @@ module.exports = function (config) {
         browsers: ['Chrome'],
         files: [
             './node_modules/lodash/lodash.min.js',
+            './node_modules/chai/chai.js',
             'https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js',
             'sort-imports.js',
             'test.js'
