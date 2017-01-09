@@ -9,12 +9,12 @@ describe('splitting into lines function', function () {
 	it('should return an array', function () {
 		expect(splitIntoLines(samples.sampleText1)).to.be.an.Array;
 	});
-	/*it('check if string is not empty', function () {
-		var splittedLines = splitIntoLines(samples.emptyStringSample);
+	it('check if string is not empty', function () {
+		var splittedLines = splitIntoLines(samples.sampleText1);
 		if (splittedLines === null || splittedLines.length === 0  ){
 			throw new Error ('String should not be empty!');
 		}
-	});*/
+	});
 	
 	//it should return an array with n items if n-line stirng passed
 	// n = random()
