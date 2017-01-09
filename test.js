@@ -4,6 +4,7 @@
 describe('splitting into lines function', function () {
 	it('should be a function', function () {
 		expect(splitIntoLines).to.be.a.Function;
+		/*throw Error('Hitrushka');*/
 	});
 
 	it('should return an array', function () {

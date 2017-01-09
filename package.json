@@ -1,16 +1,23 @@
 {
   "name": "ivan",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "",
   "main": "sort-imports.js",
   "dependencies": {
-    "eslint": "^3.12.2"
+    "eslint": "^3.12.2",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.12.2",
     "eslint-plugin-chai-expect": "^1.1.1",
     "eslint-plugin-react": "^6.8.0",
+    "jasmine": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha": "^1.3.0",
+    "karma-phantomjs-launcher": "^1.0.2",
     "mocha": "^3.2.0"
   },
   "scripts": {
