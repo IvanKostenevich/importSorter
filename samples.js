@@ -1,5 +1,5 @@
-var samples = {
-	sampleText1: `/*eslint require-yield:0*/
+/*var samples = {
+	sampleText1: `/!*eslint require-yield:0*!/
 'use strict';
 const config = require('../../config.js');
 // eslint-disable-next-line no-unused-vars
@@ -18,5 +18,5 @@ const request = require('co-request');
 const mock = require('../../mocks.js');
 const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`,
 	emptyStringSample: ''
-};
+};*/
 
