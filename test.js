@@ -9,8 +9,12 @@ describe('splitting into lines function', function () {
 	it('should return an array', function () {
 		expect(splitIntoLines(samples.sampleText1)).to.be.an.Array;
 	});
-
-	//should throw if empty string passed
+	it('check if string is not empty', function () {
+		var splittedLines = splitIntoLines(samples.emptyStringSample);
+		if (splittedLines === null || splittedLines.length === 0  ){
+			throw new Error ('String should not be empty!');
+		}
+	});
 	
 	//it should return an array with n items if n-line stirng passed
 	// n = random()
@@ -41,8 +45,11 @@ describe('sorting function', function () {
 	it('should return an array', function () {
 		expect(sortImports(samples.sampleText1)).to.be.an.Array;
 	});
-	
-	//придумать 3 строки, отсортировать в голове
-	//потом отсортировать твоей функцией
-	//из головы должно равняться тому что получилось
+	it('should sort as expected', function () {
+		const testLines = `const squirrel = require('belka');\n/*eslint is a great tool:0*/\n'use strict';`;
+		const expected = `/*eslint is a great tool:0*/\n'use strict';\nconst squirrel = require('belka');`;
+		var tokens = sortImports(testLines);
+		expect(tokensToString(tokens)).to.be.eql(expected);
+	});
+
 });
