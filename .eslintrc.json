@@ -6,7 +6,7 @@
     "mocha": true
   },
   "globals": {
-    "importSorterModule": true,
+    "IMPORT_SORTER": true,
     "_":true,
     "chai":true,
     "expect":true

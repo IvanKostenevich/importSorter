@@ -1,7 +1,7 @@
 'use strict';
 
-var importSorterModule = (function () {
-// eslint-disable-next-line no-unused-vars
+var IMPORT_SORTER = (function () {
+
 	var samples = {
 		sampleText1: `/*eslint require-yield:0*/
 'use strict';
@@ -75,10 +75,10 @@ const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
 
 
 		sortImports: function (text) {
-			var lines = importSorterModule.splitIntoLines(text);
+			var lines = IMPORT_SORTER.splitIntoLines(text);
 
 			var tokens = lines.map(function (line) {
-				return {line: line, weight: importSorterModule.getWeight(line)};
+				return {line: line, weight: IMPORT_SORTER.getWeight(line)};
 			});
 			return _.sortBy(tokens, 'weight');
 		},
@@ -90,7 +90,5 @@ const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
 		}
 
 
-// var tokens = sortImports(samples.sampleText1);
-// tokensToString(tokens);
 	};
 }());
