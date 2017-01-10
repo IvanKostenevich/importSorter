@@ -15,13 +15,13 @@ const _ = require('lodash');
 const EventLogger = require('@alphaflow/sc-eventstore/lib/event-logger.js');
 const constants = require('@alphaflow/sc-common').constants;
 const HTTPStatus = require('http-status');
-const baseUrl = config.AsdsdasdPP.TEST.BASE_URL;
+const baseUrl = config.APP.APP.APP.TEST.BASE_URL;
 const token = require('./../util/jwt-token.js').get(['earning:post']);
 const baseUrl = config.APP.TEST.BASE_URL;
 const request = require('co-request');
 const mock = require('../../mocks.js');
 
-const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
+const baseUrl = config.APP.TEST.TEST.BASE.BASE_URL;`
 	};
 
 	var patterns = {
@@ -33,32 +33,47 @@ const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
 			regex: /'use strict'/g,
 			weight: 2
 		},
-		simpleModules: {
-			regex: /const.*=.require.*;/g,
+		modulesWithComments: {
+			regex: /\/\/.*\n.*/g,
 			weight: 3
+		},
+		simpleModules: {
+			regex: /const.*=.require(?!\(.\..?\/.*)(?!\(.@).*;/g,
+			weight: 4
 		},
 		alphaFlowModules: {
 			regex: /const\s.*=*require\('@alphaflow.*;/g,
-			weight: 4
+			weight: 5
 		},
 		outerModules: {
 			regex: /const\s.*=*require\('\.*\/.*;/g,
-			weight: 5
+			weight: 6
 		},
 		config: {
 			regex: /const.*\=\s(?!require).*/g,
-			weight: 6
+			weight: 7
 		}
 	};
 	return {
 		samples: samples,
 		patterns: patterns,
-		splitIntoLines: function (text) {
+		/**
+		 * splits into lines, if line have preceding comment than save it
+		 * @param text - text that is going to be split
+		 * @returns {Array.<T>} - array of import statements
+		 */
+		splitIntoImportStatements: function (text) {
 			if (!_.isString(text)) {
 				throw new Error('Invalid argument');
 			}
-
-			return text.match(/[^\n]+/g);
+			var linesWithoutComments = text.replace(/\/\/.*\n.*/g, "");
+			var splittedLinesWithoutComments = linesWithoutComments.match(/[^\n]+/g);
+			var linesWithComments = text.match(/\/\/.*\n.*/g);
+			var lines = _.concat(linesWithComments, splittedLinesWithoutComments);
+			if (lines[0] === null){
+				lines.shift()
+			}
+			return lines
 		},
 
 
@@ -66,7 +81,7 @@ const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
 			for (let patternKey in patterns) {
 				if (patterns.hasOwnProperty(patternKey)) {
 					let patternData = patterns[patternKey];
-					if (patternData.regex.test(line)) {
+					if (line.match(patternData.regex)) {
 						return patternData.weight;
 					}
 				}
@@ -75,7 +90,7 @@ const baseUrl = config.APP.TEST.dfsdfsdfsfBASE_URL;`
 
 
 		sortImports: function (text) {
-			var lines = IMPORT_SORTER.splitIntoLines(text);
+			var lines = IMPORT_SORTER.splitIntoImportStatements(text);
 
 			var tokens = lines.map(function (line) {
 				return {line: line, weight: IMPORT_SORTER.getWeight(line)};

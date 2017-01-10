@@ -2,15 +2,15 @@
 
 describe('splitting into lines function', function () {
 	it('should be a function', function () {
-		expect(IMPORT_SORTER.splitIntoLines).to.be.a.Function;
+		expect(IMPORT_SORTER.splitIntoImportStatements).to.be.a.Function;
 		/*throw Error('Hitrushka');*/
 	});
 
 	it('should return an array', function () {
-		expect(IMPORT_SORTER.splitIntoLines(IMPORT_SORTER.samples.sampleText1)).to.be.an.Array;
+		expect(IMPORT_SORTER.splitIntoImportStatements(IMPORT_SORTER.samples.sampleText1)).to.be.an.Array;
 	});
 	it('check if string is not empty', function () {
-		var splittedLines = IMPORT_SORTER.splitIntoLines(IMPORT_SORTER.samples.sampleText1);
+		var splittedLines = IMPORT_SORTER.splitIntoImportStatements(IMPORT_SORTER.samples.sampleText1);
 		if (splittedLines === null || splittedLines.length === 0) {
 			throw new Error('String should not be empty!');
 		}
@@ -24,7 +24,10 @@ describe('splitting into lines function', function () {
 
 		var expectedLinesNumber = _.random(1, 9);
 		var randomText = generateRandomText(expectedLinesNumber);
-		var arrayOfLines = IMPORT_SORTER.splitIntoLines(randomText);
+		var arrayOfLines = IMPORT_SORTER.splitIntoImportStatements(randomText);
+		if (arrayOfLines[0] === null){
+				arrayOfLines.shift();
+		}
 		chai.assert.equal(arrayOfLines.length, expectedLinesNumber, 'numbers are equal');
 	});
 });
@@ -34,11 +37,8 @@ describe('calculating line weight function', function () {
 		expect(IMPORT_SORTER.getWeight).to.be.a.Function;
 	});
 	it('should return a number', function () {
-		expect(IMPORT_SORTER.getWeight()).to.be.a.Number;
+		expect(IMPORT_SORTER.getWeight(IMPORT_SORTER.samples.sampleText1)).to.be.a.Number;
 	});
-
-	//ignore trailing spaces e.g. "     'use strict';     "
-	//same with tabs '	'
 
 
 });
