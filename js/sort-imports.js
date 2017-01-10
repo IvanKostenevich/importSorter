@@ -66,14 +66,14 @@ const baseUrl = config.APP.TEST.TEST.BASE.BASE_URL;`
 			if (!_.isString(text)) {
 				throw new Error('Invalid argument');
 			}
-			var linesWithoutComments = text.replace(/\/\/.*\n.*/g, "");
+			var linesWithoutComments = text.replace(/\/\/.*\n.*/g, '');
 			var splittedLinesWithoutComments = linesWithoutComments.match(/[^\n]+/g);
 			var linesWithComments = text.match(/\/\/.*\n.*/g);
 			var lines = _.concat(linesWithComments, splittedLinesWithoutComments);
 			if (lines[0] === null){
-				lines.shift()
+				lines.shift();
 			}
-			return lines
+			return lines;
 		},
 
 
