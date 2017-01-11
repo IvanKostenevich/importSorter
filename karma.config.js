@@ -11,7 +11,9 @@ module.exports = function (config) {
             './node_modules/chai/chai.js',
             'https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js',
             'js/sort-imports.js',
-            'js/test.js'
+            'js/arrayProcessingTool.js',
+            'js/test.js',
+            'js/test1.js'            
         ],
         singleRun: true
     });

@@ -7,6 +7,7 @@
   },
   "globals": {
     "IMPORT_SORTER": true,
+    "ARRAY_PROCESSING_TOOL":true,
     "_":true,
     "chai":true,
     "expect":true
