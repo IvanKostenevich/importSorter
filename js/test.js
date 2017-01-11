@@ -25,9 +25,6 @@ describe('splitting into lines function', function () {
 		var expectedLinesNumber = _.random(1, 9);
 		var randomText = generateRandomText(expectedLinesNumber);
 		var arrayOfLines = IMPORT_SORTER.splitIntoImportStatements(randomText);
-		if (arrayOfLines[0] === null){
-				arrayOfLines.shift();
-		}
 		chai.assert.equal(arrayOfLines.length, expectedLinesNumber, 'numbers are equal');
 	});
 });
@@ -39,8 +36,6 @@ describe('calculating line weight function', function () {
 	it('should return a number', function () {
 		expect(IMPORT_SORTER.getWeight(IMPORT_SORTER.samples.sampleText1)).to.be.a.Number;
 	});
-
-
 });
 
 describe('sorting function', function () {
@@ -51,8 +46,16 @@ describe('sorting function', function () {
 		expect(IMPORT_SORTER.sortImports(IMPORT_SORTER.samples.sampleText1)).to.be.an.Array;
 	});
 	it('should sort as expected', function () {
-		const testLines = 'const squirrel = require(\'belka\');\n/*eslint is a great tool:0*/\n\'use strict\';';
-		const expected = '/*eslint is a great tool:0*/\n\'use strict\';\nconst squirrel = require(\'belka\');';
+		const testLines =
+			'const squirrel = require(\'belka\');' +
+			'\n/*eslint is a great tool:0*/' +
+			'\n\'use strict\';';
+
+		const expected =
+			'/*eslint is a great tool:0*/' +
+			'\n\'use strict\';' +
+			'\nconst squirrel = require(\'belka\');';
+
 		var tokens = IMPORT_SORTER.sortImports(testLines);
 		expect(IMPORT_SORTER.tokensToString(tokens)).to.be.eql(expected);
 	});

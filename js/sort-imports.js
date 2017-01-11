@@ -54,6 +54,7 @@ const baseUrl = config.APP.TEST.TEST.BASE.BASE_URL;`
 			weight: 7
 		}
 	};
+
 	return {
 		samples: samples,
 		patterns: patterns,
@@ -66,13 +67,11 @@ const baseUrl = config.APP.TEST.TEST.BASE.BASE_URL;`
 			if (!_.isString(text)) {
 				throw new Error('Invalid argument');
 			}
-			var linesWithoutComments = text.replace(/\/\/.*\n.*/g, '');
-			var splittedLinesWithoutComments = linesWithoutComments.match(/[^\n]+/g);
-			var linesWithComments = text.match(/\/\/.*\n.*/g);
-			var lines = _.concat(linesWithComments, splittedLinesWithoutComments);
-			if (lines[0] === null){
-				lines.shift();
-			}
+			var textWithoutComments = text.replace(/\/\/.*\n.*/g, '');
+			var linesWithoutComments = textWithoutComments.match(/[^\n]+/g) || [];//TODO:.split
+			var linesWithComments = text.match(/\/\/.*\n.*/g) || [];//TODO:statements with comments ,one line statements
+			var lines = _.concat(linesWithComments, linesWithoutComments);
+
 			return lines;
 		},
 
