@@ -68,11 +68,10 @@ const baseUrl = config.APP.TEST.TEST.BASE.BASE_URL;`
 				throw new Error('Invalid argument');
 			}
 			var textWithoutComments = text.replace(/\/\/.*\n.*/g, '');
-			var linesWithoutComments = textWithoutComments.match(/[^\n]+/g) || [];//TODO:.split
-			var linesWithComments = text.match(/\/\/.*\n.*/g) || [];//TODO:statements with comments ,one line statements
-			var lines = _.concat(linesWithComments, linesWithoutComments);
+			var oneLineStatements = textWithoutComments.match(/[^\n]+/g) || [];
+			var statementsWithComments = text.match(/\/\/.*\n.*/g) || [];
 
-			return lines;
+			return _.concat(statementsWithComments, oneLineStatements);
 		},
 
 
