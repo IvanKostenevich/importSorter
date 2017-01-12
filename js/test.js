@@ -1,5 +1,6 @@
 'use strict';
 
+
 describe('splitting into lines function', function () {
 	it('should be a function', function () {
 		expect(IMPORT_SORTER.splitIntoImportStatements).to.be.a.Function;

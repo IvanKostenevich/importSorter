@@ -3,12 +3,10 @@
 // eslint-disable-next-line no-unused-vars
 var ARRAY_PROCESSING_TOOL = (function () {
 
-	var arraySample = [-1, 2, 3, 4, -9, 5];
-
 	return {
-		arraySample: arraySample,
 
 		getMaxSubSum: function (array) {
+
 			var maxSum = 0;
 			for (var i = 0; i < array.length; i++) {
 				var currentSum = 0;
@@ -19,25 +17,46 @@ var ARRAY_PROCESSING_TOOL = (function () {
 			}
 
 			return maxSum;
+
 		},
 		getMaxValue: function (array) {
-			return Math.max.apply(null, array);
+			if (array instanceof Array) {
+				var maxValue = 0;
+				for (var i = 0; i <= array.length; i++) {
+					if (array[i] >= maxValue) {
+						maxValue = array[i];
+					}
+				}
+
+				return maxValue;
+			} else {
+				throw new Error('function should take array as a parameter');
+			}
 		},
-		getMediumValue: function (array) {
+		getMedianValue: function (array) {
 			array.sort(function (a, b) {
 				return a - b;
 			});
-			var median = function () {
-				if (array.length % 2 === 0) {
-					return (array[array.length / 2] + array[array.length / 2 - 1]) / 2;
-				} else {
-					return array[Math.floor(array.length / 2)];
-				}
-			};
-			return median();
+			if (array.length % 2 === 0) {
+				return (array[array.length / 2] + array[array.length / 2 - 1]) / 2;
+			} else {
+				var middleElement = Math.floor(array.length / 2);
+				return array[middleElement];
+			}
 		},
 		getMinValue: function (array) {
-			return Math.min.apply(null, array);
+			if (array instanceof Array) {
+				var minValue = 0;
+				for (var i = 0; i <= array.length; i++) {
+					if (array[i] <= minValue) {
+						minValue = array[i];
+					}
+				}
+
+				return minValue;
+			} else {
+				throw new Error('function should take array as a parameter');
+			}
 
 		}
 	};
