@@ -22,15 +22,15 @@ var ARRAY_PROCESSING_TOOL = (function () {
 		getMaxValue: function (array) {
 			if (array instanceof Array) {
 				var maxValue = 0;
-				for (var i = 0; i <= array.length; i++) {
-					if (array[i] >= maxValue) {
+				for (var i = 1; i < array.length; i++) {
+					if (array[i] >= maxValue) {//todo max= array[0],do i need '=' in '>='?
 						maxValue = array[i];
 					}
 				}
 
 				return maxValue;
 			} else {
-				throw new Error('function should take array as a parameter');
+				throw new Error('function should take array as a parameter');//todo error up,if empty error,
 			}
 		},
 		getMedianValue: function (array) {
@@ -47,7 +47,7 @@ var ARRAY_PROCESSING_TOOL = (function () {
 		getMinValue: function (array) {
 			if (array instanceof Array) {
 				var minValue = 0;
-				for (var i = 0; i <= array.length; i++) {
+				for (var i = 0; i < array.length; i++) {
 					if (array[i] <= minValue) {
 						minValue = array[i];
 					}
