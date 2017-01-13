@@ -4,7 +4,6 @@
 var ARRAY_PROCESSING_TOOL = (function () {
 
 	return {
-
 		getMaxSubSum: function (array) {
 
 			var maxSum = 0;
@@ -20,18 +19,18 @@ var ARRAY_PROCESSING_TOOL = (function () {
 
 		},
 		getMaxValue: function (array) {
-			if (array instanceof Array) {
-				var maxValue = 0;
+			if (!(array instanceof Array)) {
+				throw new Error('function should take array as a parameter');
+
+			} else {
+				var maxValue = array[0];
 				for (var i = 1; i < array.length; i++) {
-					if (array[i] >= maxValue) {//todo max= array[0],do i need '=' in '>='?
+					if (array[i] > maxValue) {
 						maxValue = array[i];
 					}
 				}
-
-				return maxValue;
-			} else {
-				throw new Error('function should take array as a parameter');//todo error up,if empty error,
 			}
+			return maxValue;
 		},
 		getMedianValue: function (array) {
 			array.sort(function (a, b) {
@@ -45,19 +44,43 @@ var ARRAY_PROCESSING_TOOL = (function () {
 			}
 		},
 		getMinValue: function (array) {
-			if (array instanceof Array) {
-				var minValue = 0;
-				for (var i = 0; i < array.length; i++) {
-					if (array[i] <= minValue) {
+			if (!(array instanceof Array)) {
+				throw new Error('function should take array as a parameter');
+			} else {
+				var minValue = array[0];
+				for (var i = 1; i < array.length; i++) {
+					if (array[i] < minValue) {
 						minValue = array[i];
 					}
 				}
-
-				return minValue;
-			} else {
+			}
+			return minValue;
+		},
+		getLongestIncreasingSubarray: function (array) {
+			if (!(array instanceof Array)) {
 				throw new Error('function should take array as a parameter');
 			}
 
+			var compareArray = [];
+			var finalArray = [];
+			for (var i = 0; i < array.length; i++) {
+				if (compareArray.length === 0) {
+					compareArray.push(array[i]);
+				}
+				if (array[i] < array[i + 1]) {
+					compareArray.push(array[i + 1]);
+				} else {
+					if (finalArray.length < compareArray.length) {
+						finalArray = compareArray.slice(0);
+						compareArray = [];
+					} else {
+						compareArray = [];
+					}
+				}
+			}
+
+
+			return finalArray;
 		}
 	};
 }());

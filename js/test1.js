@@ -53,6 +53,21 @@ describe('getMedianValue function', function () {
 	});
 });
 
+describe('getLongestIncreasingSubarray function', function () {
+	it('should be a function', function () {
+		expect(ARRAY_PROCESSING_TOOL.getLongestIncreasingSubarray).to.be.a.Function;
+	});
+	it('should output the expected result', function () {
+		var arrayToGetLongestIncreasingSubarray = [1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1];
+		var expectedResult = [1, 2, 5, 7, 8, 90];
+		expect(ARRAY_PROCESSING_TOOL.getLongestIncreasingSubarray(arrayToGetLongestIncreasingSubarray)).to.be.eql(expectedResult);
+	});
+	it('should return an array',function () {
+		var arrayToGetLongestIncreasingSubarray = [1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1];
+		expect(ARRAY_PROCESSING_TOOL.getLongestIncreasingSubarray(arrayToGetLongestIncreasingSubarray)).to.be.a.Array;
+	});
+});
+
 
 
 
