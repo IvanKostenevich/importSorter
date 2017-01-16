@@ -1,5 +1,26 @@
 'use strict';
 
+var samples = {
+	sampleText1: `/*eslint require-yield:0*/
+'use strict';
+const config = require('../../config.js');
+// eslint-disable-next-line no-unused-vars
+const coMocha = require('co-mocha');
+// eslint-disable-next-line no-unused-vars
+const should = require('chai').should();
+// eslint-disable-next-line no-unused-vars
+const _ = require('lodash');
+const EventLogger = require('@alphaflow/sc-eventstore/lib/event-logger.js');
+const constants = require('@alphaflow/sc-common').constants;
+const HTTPStatus = require('http-status');
+const baseUrl = config.APP.APP.APP.TEST.BASE_URL;
+const token = require('./../util/jwt-token.js').get(['earning:post']);
+const baseUrl = config.APP.TEST.BASE_URL;
+const request = require('co-request');
+const mock = require('../../mocks.js');
+
+const baseUrl = config.APP.TEST.TEST.BASE.BASE_URL;`
+};
 
 describe('splitting into lines function', function () {
 	it('should be a function', function () {
@@ -8,10 +29,10 @@ describe('splitting into lines function', function () {
 	});
 
 	it('should return an array', function () {
-		expect(IMPORT_SORTER.splitIntoImportStatements(IMPORT_SORTER.samples.sampleText1)).to.be.an.Array;
+		expect(IMPORT_SORTER.splitIntoImportStatements(samples.sampleText1)).to.be.an.Array;
 	});
 	it('check if string is not empty', function () {
-		var splittedLines = IMPORT_SORTER.splitIntoImportStatements(IMPORT_SORTER.samples.sampleText1);
+		var splittedLines = IMPORT_SORTER.splitIntoImportStatements(samples.sampleText1);
 		if (splittedLines === null || splittedLines.length === 0) {
 			throw new Error('String should not be empty!');
 		}
@@ -35,7 +56,7 @@ describe('calculating line weight function', function () {
 		expect(IMPORT_SORTER.getWeight).to.be.a.Function;
 	});
 	it('should return a number', function () {
-		expect(IMPORT_SORTER.getWeight(IMPORT_SORTER.samples.sampleText1)).to.be.a.Number;
+		expect(IMPORT_SORTER.getWeight(samples.sampleText1)).to.be.a.Number;
 	});
 });
 
@@ -44,7 +65,7 @@ describe('sorting function', function () {
 		expect(IMPORT_SORTER.sortImports).to.be.a.Function;
 	});
 	it('should return an array', function () {
-		expect(IMPORT_SORTER.sortImports(IMPORT_SORTER.samples.sampleText1)).to.be.an.Array;
+		expect(IMPORT_SORTER.sortImports(samples.sampleText1)).to.be.an.Array;
 	});
 	it('should sort as expected', function () {
 		const testLines =

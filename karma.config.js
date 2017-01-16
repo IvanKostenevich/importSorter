@@ -9,11 +9,11 @@ module.exports = function (config) {
         files: [
             './node_modules/lodash/lodash.min.js',
             './node_modules/chai/chai.js',
-            'https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js',
-            'js/sort-imports.js',
-            'js/arrayProcessingTool.js',
-            'js/test.js',
-            'js/test1.js'            
+            'https://cdn.rawgit.com/Automattic/expect.src/0.3.1/index.src',
+            'src/importSorter.js',
+            'src/arrayProcessingTool.js',
+            'src/test_importSorter.js',
+            'src/test_arrayProcessingTool.js'            
         ],
         singleRun: true
     });
