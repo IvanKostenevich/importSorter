@@ -3,18 +3,19 @@
  */
 
 module.exports = function (config) {
-    config.set({
-        frameworks: ['mocha'],
-        browsers: ['Chrome'],
-        files: [
-            './node_modules/lodash/lodash.min.js',
-            './node_modules/chai/chai.js',
-            'https://cdn.rawgit.com/Automattic/expect.src/0.3.1/index.src',
-            'src/importSorter.js',
-            'src/arrayProcessingTool.js',
-            'src/test_importSorter.js',
-            'src/test_arrayProcessingTool.js'            
-        ],
-        singleRun: true
-    });
+	config.set({
+		frameworks: ['mocha'],
+		browsers: ['Chrome'],
+		files: [
+			'./node_modules/lodash/lodash.min.js',
+			'./node_modules/chai/chai.js',
+			// './node_modules/expect/umd/expect.js',			
+			'https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js',
+			'src/importSorter.js',
+			'src/arrayProcessingTool.js',
+			'src/importSorter_test.js',
+			'src/arrayProcessingTool_test.js'
+		],
+		singleRun: true
+	});
 };
