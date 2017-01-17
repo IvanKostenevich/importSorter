@@ -2,9 +2,9 @@
 
 describe('ADDITION_MODULE',function () {
 	it('should add 2 arguments with addTwoArguments(x, y) syntax',function () {
-		expect(add(5,6)).to.be.eql(11);
+		expect(add(5,6,1)).to.be.eql(12);
 	});
 	it('should add 2 arguments with addTwoArguments(x)(y) syntax',function () {
-		expect(add(10)(6)).to.be.eql(16);
+		expect(add(10)(6)(1)).to.be.eql(17);
 	});
 });

@@ -1,14 +1,31 @@
-'use strict';
 
+// eslint-disable-next-line no-unused-vars
+function add() {
+	if (arguments.length === 0) {
+		throw new Error('you should pass the arguments');
+	}else if (arguments.length === 1) {
+		var sum = arguments[0];
 
-var add = function (a, b) {
-	if (typeof b === 'undefined') {
-		return function (y) {
-			return a + y;
+		var addAndRepeat = function () {
+			if (arguments[0]) {
+				sum += arguments[0];
+				return addAndRepeat;
+			} else {
+				return sum;
+			}
 		};
-	}
-	return a + b;
 
-};
-add(3,4);
-add(3)(4);
+		addAndRepeat.toString = function () {
+			return sum;
+		};
+
+		return addAndRepeat;
+	} else if (arguments.length > 1) {
+		var total = 0;
+		for (var i = 0; i < arguments.length; i++) {
+			total += arguments[i];
+		}
+		return total;
+	}
+}
+
