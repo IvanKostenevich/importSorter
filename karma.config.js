@@ -9,7 +9,6 @@ module.exports = function (config) {
 		files: [
 			'./node_modules/lodash/lodash.min.js',
 			'./node_modules/chai/chai.js',
-			// './node_modules/expect/umd/expect.js',			
 			'https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js',
 			'src/importSorter.js',
 			'src/arrayProcessingTool.js',
