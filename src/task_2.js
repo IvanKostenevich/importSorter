@@ -6,22 +6,47 @@ function add() {
 	if (arguments.length === 0) {
 		throw new Error('you should pass the arguments');
 	}
-		var sum = 0;
-		var addAndRepeat = function () {
-			if (arguments.length) {
-				for (var i = 0; i < arguments.length; i++) {
-					sum += arguments[i];
-				}
-				return addAndRepeat;
-			} else {
-				return sum;
+	var sum = 0;
+	var addAndRepeat = function () {
+		if (arguments.length) {
+			for (var i = 0; i < arguments.length; i++) {
+				sum += arguments[i];
 			}
-		};
-
-		addAndRepeat.toString = function () {
+			return addAndRepeat;
+		} else {
 			return sum;
-		};
+		}
+	};
 
-		return addAndRepeat.apply(null, arguments);
-	
+	addAndRepeat.toString = function () {
+		return sum;
+	};
+
+	return addAndRepeat.apply(null, arguments);
+
+}
+// eslint-disable-next-line no-unused-vars
+function addition() {
+	if (arguments.length === 0) {
+		throw new Error('you should pass the arguments');
+	}
+	var sum = 0;
+	var addAndRepeat = function () {
+		if (arguments.length) {
+			sum += [].reduce.call(arguments, function (a, b) {
+				return a + b;
+			});
+			return addAndRepeat;
+		} else {
+			return sum;
+		}
+	};
+
+	addAndRepeat.toString = function () {
+		return sum;
+	};
+
+	return addAndRepeat.apply(null, arguments);
+
+
 }
