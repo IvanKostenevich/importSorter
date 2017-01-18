@@ -9,6 +9,7 @@
     "IMPORT_SORTER": true,
     "ARRAY_PROCESSING_TOOL":true,
     "ADDITION_MODULE":true,
+    "shuffleArray":true,
     "add":true,
     "addition":true,
     "_":true,

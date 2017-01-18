@@ -6,6 +6,7 @@ function add() {
 	if (arguments.length === 0) {
 		throw new Error('you should pass the arguments');
 	}
+
 	var sum = 0;
 	var addAndRepeat = function () {
 		if (arguments.length) {
@@ -21,15 +22,16 @@ function add() {
 	addAndRepeat.toString = function () {
 		return sum;
 	};
-
 	return addAndRepeat.apply(null, arguments);
 
 }
+
 // eslint-disable-next-line no-unused-vars
 function addition() {
 	if (arguments.length === 0) {
 		throw new Error('you should pass the arguments');
 	}
+
 	var sum = 0;
 	var addAndRepeat = function () {
 		if (arguments.length) {
@@ -45,8 +47,5 @@ function addition() {
 	addAndRepeat.toString = function () {
 		return sum;
 	};
-
 	return addAndRepeat.apply(null, arguments);
-
-
 }
