@@ -7,10 +7,6 @@ function add() {
 		throw new Error('you should pass the arguments');
 	} else {
 		var sum = 0;
-		for (var i = 0; i < arguments.length; i++) {
-			sum += arguments[i];
-		}
-
 		var addAndRepeat = function () {
 			if (arguments.length) {
 				for (var i = 0; i < arguments.length; i++) {
@@ -26,8 +22,6 @@ function add() {
 			return sum;
 		};
 
-		return addAndRepeat;
+		return addAndRepeat.apply(null, arguments);
 	}
 }
-
-
