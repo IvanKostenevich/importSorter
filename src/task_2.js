@@ -5,7 +5,7 @@
 function add() {
 	if (arguments.length === 0) {
 		throw new Error('you should pass the arguments');
-	} else {
+	}
 		var sum = 0;
 		var addAndRepeat = function () {
 			if (arguments.length) {
@@ -23,5 +23,5 @@ function add() {
 		};
 
 		return addAndRepeat.apply(null, arguments);
-	}
+	
 }
