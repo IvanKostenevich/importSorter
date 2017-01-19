@@ -12,6 +12,7 @@
     "shuffleArray":true,
     "add":true,
     "addition":true,
+    "splitNumberIntoDigitList":true,
     "_":true,
     "chai":true,
     "expect":true
