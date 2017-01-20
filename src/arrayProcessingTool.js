@@ -20,7 +20,7 @@ var ARRAY_PROCESSING_TOOL = (function () {
 		},
 		getMaxValue: function (array) {
 			if (!(array instanceof Array)) {
-				throw new Error('function should take array as a parameter');
+				throw new Error('function should take number as a parameter');
 
 			} else {
 				var maxValue = array[0];
@@ -45,7 +45,7 @@ var ARRAY_PROCESSING_TOOL = (function () {
 		},
 		getMinValue: function (array) {
 			if (!(array instanceof Array)) {
-				throw new Error('function should take array as a parameter');
+				throw new Error('function should take number as a parameter');
 			} else {
 				var minValue = array[0];
 				for (var i = 1; i < array.length; i++) {
@@ -58,7 +58,7 @@ var ARRAY_PROCESSING_TOOL = (function () {
 		},
 		getLongestIncreasingSubarray: function (array) {
 			if (!(array instanceof Array)) {
-				throw new Error('function should take array as a parameter');
+				throw new Error('function should take number as a parameter');
 			}
 
 			var compareArray = [];

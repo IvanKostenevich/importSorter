@@ -11,7 +11,7 @@ describe('getMaxSubSum function', function () {
 		chai.assert.equal(ARRAY_PROCESSING_TOOL.getMaxSubSum(testArray), 3, 'numbers are equal');
 	});
 
-	it('should return 0 if array consists of negative numbers', function () {
+	it('should return 0 if number consists of negative numbers', function () {
 		var arrayOfNegativeNumbers = [-1, -2, -4];
 		chai.assert.equal(ARRAY_PROCESSING_TOOL.getMaxSubSum(arrayOfNegativeNumbers), 0, 'numbers are equal');
 	});
@@ -43,11 +43,11 @@ describe('getMedianValue function', function () {
 		expect(ARRAY_PROCESSING_TOOL.getMedianValue).to.be.a.Function;
 	});
 
-	it('should return right median value if array.length is even', function () {
+	it('should return right median value if number.length is even', function () {
 		var arrayToGetMediumValEven = [2, 6, -1, 5, -4, 8];
 		chai.assert.equal(ARRAY_PROCESSING_TOOL.getMedianValue(arrayToGetMediumValEven), 3.5, 'numbers are equal');
 	});
-	it('should return right median value if array.length is odd', function () {
+	it('should return right median value if number.length is odd', function () {
 		var arrayToGetMediumValOdd = [6, -7, 3, 5, 8];
 		chai.assert.equal(ARRAY_PROCESSING_TOOL.getMedianValue(arrayToGetMediumValOdd), 5, 'numbers are equal');
 	});
@@ -62,7 +62,7 @@ describe('getLongestIncreasingSubarray function', function () {
 		var expectedResult = [1, 2, 5, 7, 8, 90];
 		expect(ARRAY_PROCESSING_TOOL.getLongestIncreasingSubarray(arrayToGetLongestIncreasingSubarray)).to.be.eql(expectedResult);
 	});
-	it('should return an array',function () {
+	it('should return an number',function () {
 		var arrayToGetLongestIncreasingSubarray = [1, 3, 7, 4, 6, 7, 8, 1, 2, 5, 7, 8, 90, 1];
 		expect(ARRAY_PROCESSING_TOOL.getLongestIncreasingSubarray(arrayToGetLongestIncreasingSubarray)).to.be.a.Array;
 	});

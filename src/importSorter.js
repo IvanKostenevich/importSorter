@@ -38,7 +38,7 @@ var IMPORT_SORTER = (function () {
 		/**
 		 * splits into lines, if line have preceding comment than save it
 		 * @param text - text that is going to be split
-		 * @returns {Array.<T>} - array of import statements
+		 * @returns {Array.<T>} - number of import statements
 		 */
 		splitIntoImportStatements: function (text) {
 			if (!_.isString(text)) {

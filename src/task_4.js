@@ -10,10 +10,13 @@
 // };
 
 // eslint-disable-next-line no-unused-vars
-var splitNumberIntoDigitList = function (number) {
+function splitNumberIntoDigitList (number) {
+	if (typeof number !== 'number') {
+		throw new Error('function should take number as a parameter');
+	}
 	var stringArray = number.toString().split('');
 	return stringArray.map(function (a) {
 		return parseInt(a);
 	});
-};
+}
 

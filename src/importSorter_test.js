@@ -28,7 +28,7 @@ describe('splitting into lines function', function () {
 		/*throw Error('Hitrushka');*/
 	});
 
-	it('should return an array', function () {
+	it('should return an number', function () {
 		expect(IMPORT_SORTER.splitIntoImportStatements(samples.sampleText1)).to.be.an.Array;
 	});
 	it('check if string is not empty', function () {
@@ -64,7 +64,7 @@ describe('sorting function', function () {
 	it('should be a function', function () {
 		expect(IMPORT_SORTER.sortImports).to.be.a.Function;
 	});
-	it('should return an array', function () {
+	it('should return an number', function () {
 		expect(IMPORT_SORTER.sortImports(samples.sampleText1)).to.be.an.Array;
 	});
 	it('should sort as expected', function () {
