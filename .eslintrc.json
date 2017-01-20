@@ -13,6 +13,7 @@
     "add":true,
     "addition":true,
     "splitNumberIntoDigitList":true,
+    "printTextInFrame":true,
     "_":true,
     "chai":true,
     "expect":true
