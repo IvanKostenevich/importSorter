@@ -3,10 +3,11 @@
 // eslint-disable-next-line no-unused-vars
 var myMemoizeFunc = function (passedFunc) {
 	var cache = {};
+	
 	return function (x) {
-		if (x in cache) {
+		if (x in cache) {			
 			return cache[x];
-		} else {
+		} else {			
 			return cache[x] = passedFunc(x);
 		}
 
