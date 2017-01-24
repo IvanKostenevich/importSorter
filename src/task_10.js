@@ -1,7 +1,7 @@
 'use strict';
 
 // eslint-disable-next-line no-unused-vars
-var myMemoizeFunc = function (passedFunc) {
+function memoize (passedFunc) {
 	var cache = {};
 	
 	return function (x) {
@@ -12,4 +12,4 @@ var myMemoizeFunc = function (passedFunc) {
 		}
 
 	};
-};
+}
