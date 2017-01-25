@@ -68,48 +68,31 @@ function last(array) {
 // eslint-disable-next-line no-unused-vars
 var chain = function (array) {
 
-	var store = array;
+	var state = array;
 
 	return {
 
-		map: function (callback, thisArg) {
-			var finalArray = [];
-
-			for (var i = 0; i < store.length; i++) {
-				finalArray.push(callback.call(thisArg, store[i], i, store));
-			}
-			store = finalArray;
-
-			return this;
+		map: function (callback) {
+			return chain(map(array, callback));
 		},
 
-		filter: function (callback, thisArg) {
-			var finalArray = [];
-
-			for (var i = 0; i < store.length; i++) {
-				if (callback.call(thisArg, store[i], i, store)) {
-					finalArray.push(store[i]);
-				}
-			}
-			store = finalArray;
-			
-			return this;
+		filter: function (callback) {
+			return chain(filter(array, callback));
 		},
 
 		first: function () {
-			store = [store[0]];
-			return this;
+			return chain([first(array)]);
 		},
 
 		last: function () {
-			store = [store[store.length - 1]];
-			return this;
+			return chain([last(array)]);
 		},
 
 		value: function () {
-			return store;
+			return state;
 		}
+
+
 
 	};
 };
-
