@@ -70,29 +70,21 @@ var chain = function (array) {
 
 	var state = array;
 
+	var adapt = function(func) {
+		return function (...args) {
+			args.unshift(array);
+			return chain(func.apply(null, args));
+		}
+	};
+
 	return {
 
-		map: function (callback) {
-			return chain(map(array, callback));
-		},
-
-		filter: function (callback) {
-			return chain(filter(array, callback));
-		},
-
-		first: function () {
-			return chain([first(array)]);
-		},
-
-		last: function () {
-			return chain([last(array)]);
-		},
-
+		map: adapt(map),
+		filter: adapt(filter),
+		first: adapt(first),
+		last: adapt(last),
 		value: function () {
 			return state;
 		}
-
-
-
 	};
 };
