@@ -13,6 +13,7 @@ function memoize (passedFunc) {
 
 	};
 }
+// eslint-disable-next-line no-unused-vars
 function fibonacci(n) {
 	if (n === 0 || n === 1)
 		return n;
