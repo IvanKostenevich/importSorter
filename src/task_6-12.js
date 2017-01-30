@@ -74,7 +74,7 @@ var chain = function (array) {
 		return function (...args) {
 			args.unshift(array);
 			return chain(func.apply(null, args));
-		}
+		};
 	};
 
 	return {

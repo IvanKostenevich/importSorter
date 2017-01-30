@@ -7,9 +7,15 @@ function memoize (passedFunc) {
 	return function (x) {
 		if (x in cache) {			
 			return cache[x];
-		} else {			
+		} else {
 			return cache[x] = passedFunc(x);
 		}
 
 	};
+}
+function fibonacci(n) {
+	if (n === 0 || n === 1)
+		return n;
+	else
+		return fibonacci(n - 1) + fibonacci(n - 2);
 }
